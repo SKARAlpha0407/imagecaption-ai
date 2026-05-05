@@ -23,16 +23,10 @@ class BahdanauAttention(tf.keras.layers.Layer):
         self.V  = tf.keras.layers.Dense(1,     use_bias=False)   # scalar score per timestep
 
     def call(self, query, values):
-        # query shape:  (batch, units)
-        # values shape: (batch, T, units)
-
-        # Expand query to broadcast over time steps → (batch, 1, units)
         query_expanded = tf.expand_dims(query, axis=1)
 
-        # Additive score: tanh(W1(values) + W2(query)) → (batch, T, units)
         score = tf.nn.tanh(self.W1(values) + self.W2(query_expanded))
 
-        # Project to scalar → (batch, T, 1)
         attention_weights = tf.nn.softmax(self.V(score), axis=1)
 
         # Weighted sum of values → (batch, units)
@@ -47,15 +41,6 @@ class BahdanauAttention(tf.keras.layers.Layer):
 
 
 def build_model(vocab_size: int, max_length: int, use_attention: bool = False) -> Model:
-    """
-    Build the image captioning model (Encoder-Decoder).
-    Architecture matches original notebook exactly.
-    
-    Args:
-        vocab_size: Size of vocabulary
-        max_length: Maximum sequence length
-        use_attention: If True, use Bahdanau attention mechanism
-    """
     # Encoder: image feature layers
     inputs1 = Input(shape=(4096,), name="image_input")
     fe1 = Dropout(0.4)(inputs1)
@@ -106,8 +91,6 @@ if __name__ == "__main__":
         print("[HINT] Run 06_build_tokenizer.py first.")
         exit(1)
 
-    # tokenizer, vocab_size, max_length = load_tokenizer_bundle(str(paths["TOKENIZER_PKL"]))
-    # ✅ REPLACE WITH THIS:
     with open(paths["TOKENIZER_PKL"], "rb") as f:
         bundle = pickle.load(f)
     vocab_size = bundle["vocab_size"]
