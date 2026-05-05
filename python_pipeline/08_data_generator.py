@@ -6,11 +6,6 @@ from pathlib import Path
 from tensorflow.keras.preprocessing.sequence import pad_sequences #type: ignore
 from tensorflow.keras.utils import to_categorical #type: ignore
 
-# from _01_setup_paths import get_paths
-# from _04_load_captions import load_captions
-# from _05_clean_captions import clean_captions
-# from _06_build_tokenizer import load_tokenizer_bundle
-# ✅ ADD THESE:
 import pickle
 from setup_paths import get_paths 
 
