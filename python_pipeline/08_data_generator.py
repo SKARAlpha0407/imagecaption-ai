@@ -1,12 +1,3 @@
-"""
-08_data_generator.py
-Maps to original notebook cell IDs: [21]
-Data generator yielding ((X1, X2), y) batches.
-X1: image features (4096-dim)
-X2: padded input sequences (post padding, maxlen=max_length)
-y: one-hot encoded next word (vocab_size)
-"""
-
 import numpy as np #type: ignore
 import pickle
 import argparse
