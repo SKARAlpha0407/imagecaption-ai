@@ -1,12 +1,3 @@
-"""
-07_model_architecture.py
-Maps to original notebook cell IDs: [22]
-Defines Encoder-Decoder architecture exactly as in the original notebook.
-Encoder: Input(4096) -> Dropout(0.4) -> Dense(256, relu)
-Decoder: Input(max_length) -> Embedding(256, mask_zero=True) -> Dropout(0.4) -> LSTM(256)
-Merge: add([fe2, se3]) -> Dense(256, relu) -> Dense(vocab_size, softmax)
-Also exports model architecture plot.
-"""
 
 import os
 import argparse
@@ -23,20 +14,7 @@ from setup_paths import get_paths  # Use the name you renamed it to earlier
 
 
 class BahdanauAttention(tf.keras.layers.Layer):
-    """
-    Bahdanau (additive) attention over LSTM sequence outputs.
 
-    Args:
-        units (int): Attention hidden size. Must equal the LSTM/Dense units (256).
-
-    Call inputs:
-        query:   shape (batch, units)         — the image feature vector fe2
-        values:  shape (batch, T, units)      — all LSTM hidden states (return_sequences=True)
-
-    Call output:
-        context: shape (batch, units)         — weighted sum of LSTM states
-        weights: shape (batch, T, 1)          — attention weights (useful for visualization)
-    """
     def __init__(self, units, **kwargs):
         super().__init__(**kwargs)
         self.units = units
