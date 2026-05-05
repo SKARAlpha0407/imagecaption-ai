@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+server/node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# ML Artifacts (LARGE FILES — never commit)
+*.keras
+*.h5
+*.pkl
+*.npy
+*.npz
+artifacts/
+python_pipeline/artifacts/
+ml_service/artifacts/
+
+# Data
+data/
+*.zip
+*.tar.gz
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS/Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Build
+dist/
+build/
