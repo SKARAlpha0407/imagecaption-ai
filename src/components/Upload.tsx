@@ -74,7 +74,7 @@ export default function Upload({ onUploadSuccess }: UploadProps) {
       const res = await uploadImage(file);
       if (res.success) {
         onUploadSuccess(res.data);
-        reset();
+        // ❌ REMOVED: reset(); — preview stays visible after upload
       } else {
         setError('Upload failed. Please try again.');
       }
@@ -141,7 +141,15 @@ export default function Upload({ onUploadSuccess }: UploadProps) {
           <p className="mt-3 text-sm text-destructive font-medium">{error}</p>
         )}
 
-        <div className="mt-4 flex justify-end">
+        <div className="mt-4 flex justify-end gap-2">
+          {/* ✅ NEW: Clear button for manual reset */}
+          <Button 
+            variant="outline" 
+            onClick={reset} 
+            disabled={!preview || loading}
+          >
+            Clear
+          </Button>
           <Button onClick={handleSubmit} disabled={!file || loading}>
             {loading ? (
               <>

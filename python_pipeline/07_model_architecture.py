@@ -18,9 +18,6 @@ from tensorflow.keras.models import Model # type: ignore
 from tensorflow.keras.layers import Input, Dense, LSTM, Embedding, Dropout, add # type: ignore
 from tensorflow.keras.utils import plot_model # type: ignore
 
-# from _01_setup_paths import get_paths
-# from _06_build_tokenizer import load_tokenizer_bundle
-# ✅ ADD THESE:
 import pickle
 from setup_paths import get_paths  # Use the name you renamed it to earlier
 

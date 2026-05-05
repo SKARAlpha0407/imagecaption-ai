@@ -21,7 +21,7 @@ export default function Home() {
           <div>
             <h1 className="text-2xl font-bold tracking-tight">ImageCaption AI</h1>
             <p className="text-sm text-muted-foreground">
-              VGG16 + LSTM neural network captioning, now production-ready
+              VGG16 + LSTM neural network
             </p>
           </div>
         </div>
@@ -31,6 +31,7 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-4 py-8 space-y-6">
         <Upload onUploadSuccess={handleUploadSuccess} />
 
+        {/* ✅ Result displays BELOW upload, image stays visible in Upload component */}
         {result && (
           <CaptionDisplay
             caption={result.caption}
