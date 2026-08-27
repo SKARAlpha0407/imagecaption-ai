@@ -352,18 +352,18 @@ python 12_demo_inference.py --image path/to/image.jpg
 
 ## 10. Constraints & Best Practices Observed
 
-- ✅ Model files NEVER exposed in frontend bundle
-- ✅ All secrets in `.env` (DB URIs, service URLs)
-- ✅ Structured logging (Winston/Morgan for Node, Python logging)
-- ✅ Error boundaries via Express errorHandler middleware
-- ✅ Rate limiting on upload and API routes via express-rate-limit
-- ✅ CORS enabled for development (ports 3000, 5173, localhost)
-- ✅ Input validation: file type, file size (max 5MB), image dimensions
-- ✅ Training fully separate from inference pipeline
-- ✅ FastAPI startup loads artifacts once (lifespan context) for efficient reuse
-- ✅ `padding='post'` fixed and consistent across training + inference
-- ✅ TypeScript strict mode enabled for type safety
-- ✅ MongoDB indexes on userId and timestamps for query performance
+-  Model files NEVER exposed in frontend bundle
+-  All secrets in `.env` (DB URIs, service URLs)
+-  Structured logging (Winston/Morgan for Node, Python logging)
+-  Error boundaries via Express errorHandler middleware
+-  Rate limiting on upload and API routes via express-rate-limit
+-  CORS enabled for development (ports 3000, 5173, localhost)
+-  Input validation: file type, file size (max 5MB), image dimensions
+-  Training fully separate from inference pipeline
+-  FastAPI startup loads artifacts once (lifespan context) for efficient reuse
+-  `padding='post'` fixed and consistent across training + inference
+-  TypeScript strict mode enabled for type safety
+-  MongoDB indexes on userId and timestamps for query performance
 
 ---
 
